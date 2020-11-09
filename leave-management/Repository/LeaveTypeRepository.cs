@@ -1,5 +1,6 @@
 ﻿using leave_management.Contracts;
 using leave_management.Data;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,12 @@ namespace leave_management.Repository
         public ICollection<LeaveType> GetEmployeesByLeaveType(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveTypes.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()
